@@ -1,15 +1,16 @@
 # acme-project-create
 
-Sets up a new (python) project using a template
+Sets up a new (python) project using a template.
 
 Uses a three-step process:
-1. Template files are copied to `-target-dir` location from a specified `--template-dir-path` directory. Default template for a python project is included in the package.
+1. Template files are copied to the `-target-dir` location from a `--template-dir-path` directory. Default template for a python project is included in the package.
 2. Directory names in the template following the pattern `{{<variable>}}` are substituted with value provided by the user.
-3. Filenames in the template directory that end with `j2template` (e.g. `pyproject.toml.j2template`)are assumed to be `Jinja2` templates and a file is generated in the target location with variable substitutions provided by the user i.e. `pyproject.toml`.
+3. Filenames in the template directory that end with `j2template` (e.g. `pyproject.toml.j2template`) are assumed to be `Jinja2` templates and a file is generated in the target location with variable substitutions provided by the user i.e. `pyproject.toml`.
+
 And that's it.
 
-Note: to allow user to provide all values that need to be specified to compile the template
-the template dir also needs to contain a `template_manifest.py` file that must implement a function:
+Note: to provide all values to compile the template
+the template dir needs to contain a `template_manifest.py` file that must implement a function:
 
 `def configure_parser(parser: argparse.ArgumentParser) -> argparse.ArgumentParser`
 
@@ -27,11 +28,7 @@ The default template makes several notable choices:
 
 # Problem
 
-<Explantion of the problem app/library is trying to solve>
-
-# Features
-
-<Features of the application/library that solve the problem>
+Setting up all files to create a new project is time consuming and involves lots of small technical choices.
 
 # Project template
 
