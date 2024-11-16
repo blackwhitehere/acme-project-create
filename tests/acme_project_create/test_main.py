@@ -31,10 +31,6 @@ def setup_for_j2_template_rendering():
 
 def test_dir_name_rendering(setup_for_dir_name_rendering):
     temp_dir = setup_for_dir_name_rendering
-    tests_dir = os.path.dirname(os.path.abspath(__file__))
-    temp_dir = copy_template_dir(os.path.join(tests_dir, "template_dirname"))
-    args = DirnameArgs()
-    render_template_dirs(temp_dir.name, args)
     assert "acme" in os.listdir(temp_dir.name)
 
 def test_j2_template_rendering(setup_for_j2_template_rendering):
