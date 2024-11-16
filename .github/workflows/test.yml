@@ -1,0 +1,32 @@
+name: Run unit tests
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        chmod +x create_env.sh
+        ./create_env.sh
+
+    - name: Run tests
+      run: |
+        source .venv/bin/activate
+        pytest tests

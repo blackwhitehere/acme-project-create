@@ -1,0 +1,30 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: acme create",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/acme_project_create/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "-target-dir",
+                "${workspaceFolder}/data",
+                "-project-name",
+                "acme-project-create",
+                "-desc",
+                "Sets up a new (python) project using a template",
+                "-package-name",
+                "acme_project_create",
+                "-owner-email",
+                "guner.stan@gmail.com",
+                "-command-name",
+                "apc"
+            ],
+        }
+    ]
+}
