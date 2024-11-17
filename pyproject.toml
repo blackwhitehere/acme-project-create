@@ -8,7 +8,7 @@ version = "0.0.1"
 description = "Sets up a new (python) project using a template"
 readme = "README.md"
 classifiers = [ "Programming Language :: Python :: 3.9", ]
-dependencies = [ "Jinja2" ]
+dependencies = [ "Jinja2", "python-dotenv" ]
 
 [[project.authors]]
 email = "guner.stan@gmail.com"
@@ -26,7 +26,8 @@ dev = [
     "build", # for building python packages
     "mkdocs", # for documentation
     "mkdocs-material", # theme for mkdocs
-    "mkdocstrings[python]" # mkdocs plugin to generate API docs from sources
+    "mkdocstrings[python]", # mkdocs plugin to generate API docs from sources
+    "jupyterlab" # for jupyter notebooks
 ]
 
 [tool.setuptools]
