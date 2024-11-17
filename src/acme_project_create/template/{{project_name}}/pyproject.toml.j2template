@@ -8,7 +8,7 @@ version = "{{version}}"
 description = "{{description}}"
 readme = "README.md"
 classifiers = [ "Programming Language :: Python :: {{python_version}}", ]
-dependencies = [ ]
+dependencies = [ "python-dotenv" ]
 
 [[project.authors]]
 email = "{{owner_email}}"
@@ -26,7 +26,8 @@ dev = [
     "build", # for building python packages
     "mkdocs", # for documentation
     "mkdocs-material", # theme for mkdocs
-    "mkdocstrings[python]" # mkdocs plugin to generate API docs from sources
+    "mkdocstrings[python]", # mkdocs plugin to generate API docs from sources
+    "jupyterlab", # for jupyter notebooks
 ]
 
 [tool.setuptools]
