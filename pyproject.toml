@@ -17,13 +17,13 @@ email = "guner.stan@gmail.com"
 apc = "acme_project_create._main:main"
 
 [project.urls]
-homepage = "https://example.com"
-repository = "https://example.com"
+homepage = "https://blackwhitehere.github.io/acme-project-create"
+repository = "https://github.com/blackwhitehere/acme-project-create"
 
 [project.optional-dependencies]
 dev = [
     "pytest", # for testing
-    "build", # for building python packages
+    "uv", # for venv
     "mkdocs", # for documentation
     "mkdocs-material", # theme for mkdocs
     "mkdocstrings[python]", # mkdocs plugin to generate API docs from sources
