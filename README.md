@@ -30,6 +30,10 @@ The default template makes several notable choices:
 
 Setting up all files to create a new project is time consuming and involves lots of small technical choices.
 
+# Why use this project?
+
+You are probably better off using [Cookiecutter](https://github.com/cookiecutter/cookiecutter)
+
 # Project template
 
 This project has been setup with `acme-project-create`, a python code template library.
