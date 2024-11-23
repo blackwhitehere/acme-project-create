@@ -35,11 +35,14 @@ def add_template_args(
 def copy_template_dir(template_dir_path: str) -> tempfile.TemporaryDirectory:
     """
     Copies the contents of the specified template directory to a temporary directory,
-    excluding 'template_manifest.py' and any '__pycache__' directories.
+    excluding 'template_manifest.py' and any `__pycache__` directories.
+    
     Args:
         template_dir_path (str): The path to the template directory to be copied.
     Returns:
         tempfile.TemporaryDirectory: A temporary directory containing the copied contents.
+    Raises:
+        FileNotFoundError: If the specified template directory does not exist
     """
     # temp dir is used to make sure only contents inside the template need to be scanned
     temp_dir = tempfile.TemporaryDirectory()

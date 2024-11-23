@@ -15,15 +15,17 @@
                 "-target-dir",
                 "${workspaceFolder}/data",
                 "-project-name",
-                "acme-project-create",
+                "hello-world-uv",
+                "--template-dir-path",
+                "${workspaceFolder}/src/acme_project_create/template_uv",
                 "-desc",
-                "Sets up a new (python) project using a template",
+                "Hello World UV",
                 "-package-name",
-                "acme_project_create",
+                "hello_world_uv",
                 "-owner-email",
                 "guner.stan@gmail.com",
                 "-command-name",
-                "apc"
+                "hwuv"
             ],
         }
     ]
