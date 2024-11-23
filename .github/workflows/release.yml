@@ -9,6 +9,8 @@ jobs:
     release:
         runs-on: ubuntu-latest
         environment: release # This environment can publish to PyPI
+        permissions:
+          id-token: write
         steps:
         - name: Checkout code
           uses: actions/checkout@v4
