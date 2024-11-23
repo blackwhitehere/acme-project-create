@@ -10,6 +10,7 @@ jobs:
         runs-on: ubuntu-latest
         environment: release # This environment can publish to PyPI
         permissions:
+          contents: 'read'
           id-token: write
         steps:
         - name: Checkout code
