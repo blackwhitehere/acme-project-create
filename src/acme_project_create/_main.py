@@ -10,8 +10,7 @@ from jinja2 import Template
 def add_template_args(
     parser: argparse.ArgumentParser, template_dir_path: str
 ) -> argparse.ArgumentParser:
-    """
-    Adds arguments to a parser using template_mani.configure_parser function in template directory.
+    """Adds arguments to a parser using template_mani.configure_parser function in template directory.
 
     Args:
         parser (argparse.ArgumentParser): The argument parser to which template arguments will be added.
@@ -33,14 +32,14 @@ def add_template_args(
 
 
 def copy_template_dir(template_dir_path: str) -> tempfile.TemporaryDirectory:
-    """
-    Copies the contents of the specified template directory to a temporary directory,
-    excluding 'template_manifest.py' and any `__pycache__` directories.
-    
+    """Copies the contents of the specified template directory to a temporary directory, excluding 'template_manifest.py' and any `__pycache__` directories.
+
     Args:
         template_dir_path (str): The path to the template directory to be copied.
+
     Returns:
         tempfile.TemporaryDirectory: A temporary directory containing the copied contents.
+
     Raises:
         FileNotFoundError: If the specified template directory does not exist
     """
@@ -58,14 +57,15 @@ def copy_template_dir(template_dir_path: str) -> tempfile.TemporaryDirectory:
 
 
 def render_template_dirs(target_dir, args):
-    """
-    Recursively finds and renames directories in the target directory that contain
+    """Recursively finds and renames directories in the target directory that contain
     variables in their names.
+
     This function searches through all directories within the specified target
     directory. If a directory name contains variables enclosed in double braces
     (e.g., {{variable}}), it replaces the double braces with single braces and
     formats the name using the provided arguments. The directory is then renamed
     to the new formatted name.
+
     Args:
         target_dir (str): The root directory to start the search.
         args (object): An object containing the variables to be used for formatting
@@ -91,8 +91,7 @@ def render_template_dirs(target_dir, args):
 
 
 def render_template_files(target_dir, args):
-    """
-    Renders Jinja2 template files in the target directory.
+    """Renders Jinja2 template files in the target directory.
 
     This function searches for all files in the specified target directory that have a `.j2template` extension,
     renders them using the provided arguments, and saves the rendered content back to the same location without

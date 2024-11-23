@@ -14,7 +14,7 @@ dependencies = [ "Jinja2", "python-dotenv" ]
 email = "guner.stan@gmail.com"
 
 [project.scripts]
-apc = "acme_project_create.main:main"
+apc = "acme_project_create._main:main"
 
 [project.urls]
 homepage = "https://example.com"

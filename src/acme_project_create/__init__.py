@@ -1,4 +1,4 @@
-from .main import (
+from ._main import (
     get_default_template_dir_path,
     parse_args,
     main_logic,

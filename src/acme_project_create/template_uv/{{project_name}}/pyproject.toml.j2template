@@ -14,7 +14,7 @@ dependencies = [ "python-dotenv" ]
 email = "{{owner_email}}"
 
 [project.scripts]
-{{command_name}} = "{{package_name}}.main:main"
+{{command_name}} = "{{package_name}}._main:main"
 
 [project.urls]
 homepage = "{{homepage_url}}"

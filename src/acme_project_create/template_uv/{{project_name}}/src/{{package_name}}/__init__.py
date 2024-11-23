@@ -1,4 +1,4 @@
-from .main import (
+from ._main import (
     main
 )
 
