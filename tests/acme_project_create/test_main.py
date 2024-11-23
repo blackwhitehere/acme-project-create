@@ -1,6 +1,6 @@
 import os
 from pytest import fixture
-from acme_project_create import render_template_dirs, render_template_files, copy_template_dir, get_default_template_dir_path
+from acme_project_create import render_template_dirs, render_template_files, copy_template_dir
 
 from dataclasses import dataclass
 

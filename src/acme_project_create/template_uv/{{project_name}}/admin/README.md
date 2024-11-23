@@ -1,1 +1,0 @@
-Directory to put all administrative scripts.

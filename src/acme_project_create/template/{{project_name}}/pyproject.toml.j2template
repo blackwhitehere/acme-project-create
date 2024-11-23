@@ -14,7 +14,7 @@ dependencies = [ "python-dotenv" ]
 email = "{{owner_email}}"
 
 [project.scripts]
-{{command_name}} = "{{package_name}}.main:main"
+{{command_name}} = "{{package_name}}._main:main"
 
 [project.urls]
 homepage = "{{homepage_url}}"
@@ -23,7 +23,7 @@ repository = "{{repository_url}}"
 [project.optional-dependencies]
 dev = [
     "pytest", # for testing
-    "build", # for building python packages
+    "uv", # for venv
     "mkdocs", # for documentation
     "mkdocs-material", # theme for mkdocs
     "mkdocstrings[python]", # mkdocs plugin to generate API docs from sources
