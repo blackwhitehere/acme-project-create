@@ -1,4 +1,4 @@
-name: Publish Python Package
+name: Release Python Package
 
 on:
     push:
@@ -6,7 +6,7 @@ on:
             - 'release/*'
 
 jobs:
-    publish:
+    release:
         runs-on: ubuntu-latest
         environment: release # This environment can publish to PyPI
         steps:
