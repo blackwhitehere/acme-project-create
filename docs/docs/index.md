@@ -17,6 +17,6 @@ You are probably better off using [Cookiecutter](https://github.com/cookiecutter
 
 ## Example usage
 
-    acp -target-dir . -project-name hello-world -desc "Say hello to the world" -package-name hello_world -command hello -owner-email hello@example.com
+    apc -target-dir . -project-name hello-world -desc "Say hello to the world" -package-name hello_world -command hello -owner-email hello@example.com
 
 For explanation of all terms see [Glossary](glossary.md)

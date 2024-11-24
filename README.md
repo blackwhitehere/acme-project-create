@@ -34,6 +34,10 @@ Setting up all files to create a new project is time consuming and involves lots
 
 You are probably better off using [Cookiecutter](https://github.com/cookiecutter/cookiecutter)
 
+## Example usage
+
+    apc -target-dir . -project-name hello-world -desc "Say hello to the world" -package-name hello_world -command hello -owner-email hello@example.com
+
 # Project template
 
 This project has been setup with `acme-project-create`, a python code template library.

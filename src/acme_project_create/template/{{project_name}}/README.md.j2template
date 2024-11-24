@@ -10,6 +10,10 @@
 
 <Features of the application/library that solve the problem>
 
+## Example usage
+
+    <example command>
+
 # Project template
 
 This project has been setup with `acme-project-create`, a python code template library.
