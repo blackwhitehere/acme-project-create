@@ -68,3 +68,6 @@ site/
 
 # PyCharm
 .idea/
+
+# folder metadata
+.DS_Store
