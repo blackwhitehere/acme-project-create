@@ -20,7 +20,7 @@ which takes an existing instance of ArgumentParser, adds arguments specific to t
 
 The default template makes several notable choices:
 
-* Uses `venv` for virtual environments and `.venv` dir to store built environment
+* Uses `venv` for virtual environments and `.venv` dir to store built environment (and `uv` to build it)
 * Uses `.env` file for setting up environment variables
 * Uses `setuptools` for packaging
 * Uses `pytest` for testing
