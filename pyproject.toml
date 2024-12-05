@@ -7,7 +7,7 @@ name = "acme_project_create"
 version = "0.0.3"
 description = "Sets up a new (python) project using a template"
 readme = "README.md"
-classifiers = [ "Programming Language :: Python :: 3.9", ]
+classifiers = [ "Programming Language :: Python :: 3.12", ]
 dependencies = [ "Jinja2", "python-dotenv" ]
 
 [[project.authors]]
