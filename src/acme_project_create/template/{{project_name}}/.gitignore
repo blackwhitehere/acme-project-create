@@ -71,3 +71,6 @@ site/
 
 # folder metadata
 .DS_Store
+
+# todo file for personal notes
+TODO.md
