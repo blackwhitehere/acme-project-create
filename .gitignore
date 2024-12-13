@@ -64,3 +64,5 @@ site/
 
 # PyCharm
 .idea/
+
+.DS_Store
