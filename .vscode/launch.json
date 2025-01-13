@@ -8,24 +8,25 @@
             "name": "Python: acme create",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/src/acme_project_create/main.py",
+            "program": "${workspaceFolder}/src/acme_project_create/_main.py",
             "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python",
             "justMyCode": true,
             "args": [
                 "-target-dir",
                 "${workspaceFolder}/data",
                 "-project-name",
-                "hello-world-uv",
+                "hello-world",
                 "--template-dir-path",
-                "${workspaceFolder}/src/acme_project_create/template_uv",
+                "${workspaceFolder}/src/acme_project_create/template",
                 "-desc",
-                "Hello World UV",
+                "Hello World",
                 "-package-name",
-                "hello_world_uv",
+                "hello_world",
                 "-owner-email",
-                "guner.stan@gmail.com",
+                "name@example.com",
                 "-command-name",
-                "hwuv"
+                "hw"
             ],
         }
     ]
