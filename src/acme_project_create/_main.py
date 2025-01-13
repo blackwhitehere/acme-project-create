@@ -4,6 +4,7 @@ import shutil
 import tempfile
 import argparse
 
+import jinja2
 from jinja2 import Template
 
 
@@ -111,8 +112,13 @@ def render_template_files(target_dir, args):
                 file_path = os.path.join(root, file_name)
                 with open(file_path, "r") as file:
                     template_content = file.read()
-                template = Template(template_content)
-                rendered_template = template.render(**vars(args))
+                template = jinja2.Template(template_content)
+                try:
+                    rendered_template = template.render(**vars(args))
+                except jinja2.exceptions.UndefinedError as e:
+                    raise KeyError(f"Missing argument for {file_path} in template rendering.") from e
+                except Exception as e:
+                    raise OSError(f"Error rendering template {file_path}.") from e
                 new_file_path = file_path.replace(".j2template", "")
                 with open(new_file_path, "w") as file:
                     file.write(rendered_template)
