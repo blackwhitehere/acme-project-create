@@ -1,5 +1,5 @@
 [build-system]
-requires = [ "setuptools>=46.4.0", "wheel>=0.36.2"]
+requires = [ "setuptools>=68.2.2", "wheel>=0.41.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,8 +7,13 @@ name = "acme_project_create"
 version = "0.0.5"
 description = "Sets up a new (python) project using a template"
 readme = "README.md"
-classifiers = [ "Programming Language :: Python :: 3.12", ]
+classifiers = [ "Programming Language :: Python :: 3.12",
+                "Programming Language :: Python :: 3.11",
+                "Programming Language :: Python :: 3.10",
+                "Programming Language :: Python :: 3.9", ]
+requires-python = ">=3.9"
 dependencies = [ "Jinja2", "python-dotenv" ]
+license = { file = "LICENSE" }
 
 [[project.authors]]
 email = "guner.stan@gmail.com"
