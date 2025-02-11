@@ -28,6 +28,7 @@ dev = [
     "mkdocs-material", # theme for mkdocs
     "mkdocstrings[python]", # mkdocs plugin to generate API docs from sources
     "jupyterlab", # for jupyter notebooks
+    "isort", # for import sorting
 ]
 
 [tool.setuptools]
