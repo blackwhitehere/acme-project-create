@@ -8,6 +8,7 @@ version = "{{version}}"
 description = "{{description}}"
 readme = "README.md"
 classifiers = [ "Programming Language :: Python :: {{python_version}}", ]
+requires-python = ">={{python_version}}"
 dependencies = [ "python-dotenv" ]
 
 [[project.authors]]
