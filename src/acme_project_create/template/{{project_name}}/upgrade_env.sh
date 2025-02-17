@@ -5,3 +5,4 @@ if [ $# -eq 1 ]; then
 else
     uv lock --upgrade
 fi
+uv sync --all-extras --dev
