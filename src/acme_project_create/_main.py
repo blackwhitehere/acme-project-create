@@ -116,7 +116,9 @@ def render_template_files(target_dir, args):
                 try:
                     rendered_template = template.render(**vars(args))
                 except jinja2.exceptions.UndefinedError as e:
-                    raise KeyError(f"Missing argument for {file_path} in template rendering.") from e
+                    raise KeyError(
+                        f"Missing argument for {file_path} in template rendering."
+                    ) from e
                 except Exception as e:
                     raise OSError(f"Error rendering template {file_path}.") from e
                 new_file_path = file_path.replace(".j2template", "")
