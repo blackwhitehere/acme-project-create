@@ -45,3 +45,4 @@ This project has been setup with `acme-project-create`, a python code template l
 To do this, from `docs/docs` dir run:
 
     ln -sf ../../README.md index.md
+* Run `pre-commit install` to install the pre-commit hooks.

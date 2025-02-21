@@ -48,3 +48,4 @@ This project has been setup with `acme-project-create`, a python code template l
 * Create `release` environment for [GitHub Actions](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-deployments/managing-environments-for-deployment#creating-an-environment)
 * Setup auth to PyPI for the GitHub Action implemented in `release.yml`: [Link](https://docs.pypi.org/trusted-publishers/adding-a-publisher/) & uv publish [doc](https://docs.astral.sh/uv/guides/publish/#publishing-your-package)
 * Once you create the python environment for the first time add the `uv.lock` file that will be created in project directory to the source control and update it each time environment is rebuilt
+* Run `pre-commit install` to install the pre-commit hooks.

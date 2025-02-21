@@ -32,7 +32,10 @@ dev = [
     "mkdocs", # for documentation
     "mkdocs-material", # theme for mkdocs
     "mkdocstrings[python]", # mkdocs plugin to generate API docs from sources
-    "jupyterlab" # for jupyter notebooks
+    "jupyterlab", # for jupyter notebooks
+    "ruff", # for linting
+    "isort", # for import sorting
+    "pre-commit", # for pre-commit hooks
 ]
 
 [tool.setuptools]
