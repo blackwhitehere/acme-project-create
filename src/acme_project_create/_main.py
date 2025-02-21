@@ -1,11 +1,10 @@
-import os
-import sys
-import shutil
-import tempfile
 import argparse
+import os
+import shutil
+import sys
+import tempfile
 
 import jinja2
-from jinja2 import Template
 
 
 def add_template_args(
