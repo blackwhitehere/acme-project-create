@@ -12,25 +12,26 @@ jobs:
     permissions: # needed to access the PyPI token: https://docs.astral.sh/uv/guides/publish/#publishing-your-package
       contents: 'read'
       id-token: write
+    
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version-file: ".python-version"
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: ".python-version"
 
-    - name: Install uv
-      uses: astral-sh/setup-uv@v3
-      with:
-        enable-cache: true
-        cache-dependency-glob: "uv.lock"
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
 
-    - name: Build package
-      run: |
-        uv build
+      - name: Build package
+        run: |
+          uv build
 
-    - name: Publish package
-      run: |
-        uv publish
+      - name: Publish package
+        run: |
+          uv publish
