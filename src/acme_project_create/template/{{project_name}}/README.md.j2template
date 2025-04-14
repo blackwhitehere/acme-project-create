@@ -44,5 +44,6 @@ This project has been setup with `acme-project-create`, a python code template l
 * In order not to replicate documentation in `docs/docs/index.md` file and `README.md` in root of the project setup a symlink from `README.md` file to the `index.md` file.
 To do this, from `docs/docs` dir run:
 
-    ln -sf ../../README.md index.md
+        ln -sf ../../README.md index.md
+
 * Run `pre-commit install` to install the pre-commit hooks.
