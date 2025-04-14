@@ -7,3 +7,6 @@ Allow for design decisions to be reversed because that makes code easy to change
 Adhere to DRY (don't repeat yourself) principle if possible. Centralize definition of the same knowledge and use it in all places it's used. When possible attempt to refactor code to obey this principle.
 
 Design systems to have orthogonal functionality.
+
+Check for python typing information in method signatures is correct and if documentation needs to be updated to reflect existing funcionality.
+Keep documentation concise but informative and avoid excess comments that just describe what code is doing.
