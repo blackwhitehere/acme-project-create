@@ -2,15 +2,15 @@
 
 {{description}}
 
-# Problem
+## Problem
 
 <Explantion of the problem app/library is trying to solve>
 
-# Features
+## Features
 
 <Features of the application/library that solve the problem>
 
-# Dev environment
+## Dev environment
 
 The project comes with a python development environment.
 To generate it, after checking out the repo run:
@@ -31,7 +31,7 @@ If you are using VSCode, set to use this env via `Python: Select Interpreter` co
 
     <example command>
 
-# Project template
+## Project template
 
 This project has been setup with `acme-project-create`, a python code template library.
 
