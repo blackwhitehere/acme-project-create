@@ -1,14 +1,22 @@
 # Project Overview
 
-<Short description of the project and its purpose.>
+`acme-project-create` is a Python-based tool designed to set up new projects using a predefined template. It simplifies the process of creating a new project by automating the setup of files and directories, substituting variables, and generating files using Jinja2 templates.
 
 ## Folder Structure
 
-<Explain the purpose of each folder in the project.>
+- **docs/**: Documentation files for the project.
+  - **mkdocs.yml**: Configuration for MkDocs documentation generator.
+  - **docs/**: Contains markdown files for various documentation topics.
+- **src/**: Source code for the `acme_project_create` package.
+- **tests/**: Test cases for the project.
 
 ## Libraries and Frameworks
 
-<List of major libraries and frameworks used in the project, with a brief description of their purpose.>
+- **uv**: Used for creating isolated Python environments.
+- **setuptools**: For packaging and distribution of the project.
+- **pytest**: Testing framework for writing and running tests.
+- **mkdocs**: Documentation generator for creating static sites.
+- **Jinja2**: Template engine for generating files with variable substitution.
 
 ## Coding Standards
 
