@@ -14,19 +14,19 @@
             "justMyCode": true,
             "args": [
                 "-target-dir",
-                "${workspaceFolder}/data",
+                "/Users/stan/Developer",
                 "-project-name",
-                "hello-world",
+                "imc-transfer-settlement",
                 "--template-dir-path",
                 "${workspaceFolder}/src/acme_project_create/template",
                 "-desc",
-                "Hello World",
+                "IMC Transfer Settlement",
                 "-package-name",
-                "hello_world",
+                "imc_transfer_settlement",
                 "-owner-email",
-                "name@example.com",
+                "guner.stan@gmail.com",
                 "-command-name",
-                "hw"
+                "its"
             ],
         }
     ]

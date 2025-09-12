@@ -23,6 +23,10 @@ Thank you for considering contributing to `{{package_name}}`! We welcome contrib
    ```bash
    pytest
    ```
+5. **Install pre-commit hooks**: They run linting checks on your commits to make sure consistent formatting is applied.
+```bash
+pre-commit install
+```
 
 ## Making Changes
 
@@ -35,7 +39,7 @@ Thank you for considering contributing to `{{package_name}}`! We welcome contrib
    ```bash
    pytest
    ```
-4. **Update Documentation**: If your changes affect the public API or user-facing functionality, update the relevant documentation in the `docs/` folder.
+4. **Update Documentation**: If your changes affect the public API or user-facing functionality that needs to be explained, update the relevant documentation in the `docs/` folder.
 
 5. **Update CHANGELOG.md**: Provide entry under `[Unreleased]` section following this pattern:
 

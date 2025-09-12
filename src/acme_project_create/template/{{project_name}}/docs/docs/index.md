@@ -1,2 +1,4 @@
-This file should be overwritten with a symlink to `README.md` in the root of the project.
-See `docs/README.md` for more details.
+# Welcome
+
+Welcome to `{{project_name}}` documentation.
+Please view `User` and `Developer` sections of the docs for relevant information.

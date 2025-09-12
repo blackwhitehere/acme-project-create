@@ -23,7 +23,11 @@ Thank you for considering contributing to `acme-project-create`! We welcome cont
    ```bash
    pytest
    ```
-
+5. **Install pre-commit hooks**: They run linting checks on your commits to make sure consistent formatting is applied.
+   ```bash
+   pre-commit install
+   ```
+   
 ## Making Changes
 
 1. **Create a Branch**: Create a new branch for your changes.

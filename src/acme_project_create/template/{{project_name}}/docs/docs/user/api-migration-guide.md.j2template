@@ -1,0 +1,5 @@
+# API Migration Guide
+
+This guide covers breaking changes and migration steps for major API updates in `{{project_name}}`.
+
+Each sub-section describes what changes were made in the release and how to update your code to accomodate the change.
