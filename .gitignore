@@ -66,3 +66,6 @@ site/
 .idea/
 
 .DS_Store
+
+# Debug file
+.vscode/launch.json
