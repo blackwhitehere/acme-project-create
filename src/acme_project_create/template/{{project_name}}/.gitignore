@@ -77,3 +77,6 @@ TODO.md
 
 # ruff
 .ruff_cache/
+
+# Claude Code local settings (machine-specific)
+.claude/settings.local.json
