@@ -6,22 +6,36 @@
 
 | Task | Command |
 |------|---------|
-| Run tests | `./admin/test.sh` or `uv run pytest tests` |
-| Lint code | `./admin/lint.sh` or `uv run ruff check src tests` |
-| Format code | `./admin/format.sh` |
-| Install deps | `uv sync` |
+| Run tests | `just test` or `./admin/test.sh` |
+| Lint code | `just lint` or `./admin/lint.sh` |
+| Format code | `just format` or `./admin/format.sh` |
+| Install deps | `just install` or `uv sync` |
 | Add dependency | `uv add <package>` |
+| **Run demo** | `just demo` |
 | Run app | `uv run python -m {{package_name}}` |
+
+## Demo
+
+Run `just demo` to populate fixture data and launch a Streamlit app showcasing all functionality. Every project should maintain a working demo that visually demonstrates what it can do.
+
+The demo:
+1. Runs `{{package_name}}.demo --setup` to populate a local data store with fixture data
+2. Launches a Streamlit app at `src/{{package_name}}/demo_app.py`
+
+When adding new features, update the demo to showcase them.
 
 ## Project Structure
 
 ```
 {{project_name}}/
 ├── src/{{package_name}}/    # Main package source code
+│   ├── demo.py              # Demo fixture data setup
+│   └── demo_app.py          # Streamlit demo app
 ├── tests/                   # Test files
 ├── docs/                    # Documentation (MkDocs)
 ├── admin/                   # Admin scripts
 ├── .github/                 # GitHub workflows and config
+├── justfile                 # Just commands
 ├── pyproject.toml           # Project configuration
 └── CLAUDE.md                # This file
 ```
@@ -49,17 +63,31 @@
 
 ### Before Committing
 
-1. Run `./admin/lint.sh` - fix any errors
-2. Run `./admin/format.sh` - format code
-3. Run `./admin/test.sh` - ensure tests pass
+1. Run `just lint` - fix any errors
+2. Run `just format` - format code
+3. Run `just test` - ensure tests pass
 4. Update `CHANGELOG.md` under `[Unreleased]`
 
 ### Pull Request Checklist
 
 - [ ] Tests added/updated for changes
-- [ ] Linting passes (`./admin/lint.sh`)
+- [ ] Linting passes (`just lint`)
 - [ ] CHANGELOG.md updated
+- [ ] Demo updated if new features added
 - [ ] Documentation updated if needed
+
+## Just Commands
+
+| Command | Purpose |
+|---------|---------|
+| `just` | List available commands |
+| `just test` | Run pytest test suite |
+| `just lint` | Check code with ruff |
+| `just format` | Auto-format code |
+| `just fix` | Auto-fix linting issues |
+| `just demo` | Launch demo with fixture data |
+| `just install` | Install dependencies |
+| `just clean` | Remove generated files |
 
 ## Admin Scripts
 
@@ -70,3 +98,7 @@
 | `./admin/format.sh` | Auto-format code |
 | `./admin/clean.sh` | Remove untracked files |
 | `./admin/update-gitignore.sh` | Add patterns to .gitignore |
+
+## Template Origin
+
+This project was created from the `acme-project-create` template. If you develop reusable patterns or improvements, consider contributing them back to the template.

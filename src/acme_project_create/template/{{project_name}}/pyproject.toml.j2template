@@ -9,7 +9,7 @@ description = "{{description}}"
 readme = "README.md"
 classifiers = [ "Programming Language :: Python :: {{python_version}}", ]
 requires-python = ">={{python_version}}"
-dependencies = [ "python-dotenv" ]
+dependencies = [ "python-dotenv", "streamlit" ]
 
 [[project.authors]]
 email = "{{owner_email}}"
