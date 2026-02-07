@@ -5,6 +5,20 @@
 default:
     @just --list
 
+# Make local python env in-sync with lock file
+sync-py-env:
+    uv sync --all-extras --dev
+
+upgrade-py-env:
+    #!/bin/bash
+    set -euoxv pipefail
+    if [ $# -eq 1 ]; then
+        uv lock --upgrade-package "$1"
+    else
+        uv lock --upgrade
+    fi
+    uv sync --all-extras --dev
+
 # Run all tests
 test:
     uv run pytest tests/ -v

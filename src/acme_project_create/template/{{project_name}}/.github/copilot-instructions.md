@@ -2,6 +2,8 @@
 
 <Short description of the project and its purpose.>
 
+**Primary instructions are in `CLAUDE.md`** at the project root. This file supplements with Copilot-specific context.
+
 ## Folder Structure
 
 ```
@@ -9,11 +11,15 @@
 ├── src/{{package_name}}/    # Main package source code
 ├── tests/                   # Test files (pytest)
 ├── docs/                    # Documentation (MkDocs)
-├── admin/                   # Admin scripts
-├── .github/                 # GitHub workflows and config
+├── .github/                 # GitHub workflows, agents, and scoped instructions
+│   ├── agents/              # Copilot agent definitions
+│   └── instructions/        # Copilot file-scoped instructions
 ├── .claude/                 # Claude Code configuration
+│   ├── rules/               # Claude Code file-scoped rules
+│   └── commands/            # Claude Code slash commands
+├── justfile                 # Task runner (all dev commands)
 ├── pyproject.toml           # Project configuration
-└── CLAUDE.md                # Claude Code context file
+└── CLAUDE.md                # Primary instruction file (read by both Copilot and Claude Code)
 ```
 
 ## Libraries and Frameworks
@@ -26,24 +32,25 @@ When working on this project, reference these documents for context:
 
 | Document | Purpose |
 |----------|---------|
-| `CLAUDE.md` | Project overview and quick reference |
-| `docs/docs/developer/architecture.md` | System design and structure |
-| `docs/docs/developer/contributing.md` | Contribution guidelines |
-| `CONTRIBUTING.md` | Full contribution requirements |
+| `CLAUDE.md` | Primary project instructions and quick reference |
+| `CONTRIBUTING.md` | Contribution guidelines and workflow |
 | `CHANGELOG.md` | Release notes format |
-| `admin/README.md` | Available admin scripts |
+| `docs/docs/developer/architecture.md` | System design and structure |
+| [acme-arch/docs/acme-architecture.md](https://github.com/blackwhitehere/acme-arch/blob/main/docs/acme-architecture.md) | Overall ACME system architecture |
 
-## Available Admin Scripts
+## Development Commands
 
-Use these scripts for common development tasks:
+All development tasks use `just` as the command runner:
 
-| Script | Purpose | Usage |
-|--------|---------|-------|
-| `./admin/test.sh` | Run pytest | `./admin/test.sh [-v] [path]` |
-| `./admin/lint.sh` | Check code with ruff | `./admin/lint.sh [--fix]` |
-| `./admin/format.sh` | Format with ruff + isort | `./admin/format.sh` |
-| `./admin/clean.sh` | Remove untracked files | `./admin/clean.sh [--dry-run]` |
-| `./admin/update-gitignore.sh` | Add .gitignore patterns | `./admin/update-gitignore.sh <pattern>` |
+| Command | Purpose |
+|---------|---------|
+| `just test` | Run pytest test suite |
+| `just lint` | Check code with ruff |
+| `just format` | Format code with ruff |
+| `just fix` | Auto-fix lint issues |
+| `just install` | Install dependencies (`uv sync`) |
+| `just clean` | Remove generated files |
+| `just demo` | Launch Streamlit demo |
 
 ## Environment Management
 
@@ -69,7 +76,7 @@ uv run python -m {{package_name}}
 ## Testing Guidelines
 
 - All new code requires tests in `tests/`
-- Run tests with `./admin/test.sh` or `uv run pytest tests`
+- Run tests with `just test`
 - Aim for meaningful test coverage of business logic
 - Use descriptive test names that explain what is being tested
 - Follow the Arrange-Act-Assert pattern
@@ -98,15 +105,15 @@ Avoid superlative adjectives in code comments and documentation. Use clear, conc
 
 ### Before Committing
 
-1. Run `./admin/lint.sh` and fix any errors
-2. Run `./admin/format.sh` to format code
-3. Run `./admin/test.sh` to ensure tests pass
+1. Run `just lint` and fix any errors
+2. Run `just format` to format code
+3. Run `just test` to ensure tests pass
 4. Update `CHANGELOG.md` under `[Unreleased]` section
 
 ### Pull Request Requirements
 
 - Tests added or updated for changes
-- Linting passes (`./admin/lint.sh`)
+- Linting passes (`just lint`)
 - CHANGELOG.md updated with user-focused description
 - Documentation updated if API changes
 

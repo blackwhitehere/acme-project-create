@@ -6,13 +6,15 @@
 
 | Task | Command |
 |------|---------|
-| Run tests | `just test` or `./admin/test.sh` |
-| Lint code | `just lint` or `./admin/lint.sh` |
-| Format code | `just format` or `./admin/format.sh` |
+| Run tests | `just test` |
+| Lint code | `just lint` |
+| Format code | `just format` |
+| Fix lint issues | `just fix` |
 | Install deps | `just install` or `uv sync` |
 | Add dependency | `uv add <package>` |
 | **Run demo** | `just demo` |
 | Run app | `uv run python -m {{package_name}}` |
+| Clean files | `just clean` |
 
 ## Demo
 
@@ -33,26 +35,29 @@ When adding new features, update the demo to showcase them.
 │   └── demo_app.py          # Streamlit demo app
 ├── tests/                   # Test files
 ├── docs/                    # Documentation (MkDocs)
-├── admin/                   # Admin scripts
-├── .github/                 # GitHub workflows and config
-├── justfile                 # Just commands
+├── .github/                 # GitHub workflows, agents, and scoped instructions
+│   ├── agents/              # Copilot agent definitions
+│   └── instructions/        # Copilot file-scoped instructions
+├── .claude/                 # Claude Code configuration
+│   ├── rules/               # Claude Code file-scoped rules
+│   └── commands/            # Claude Code slash commands
+├── justfile                 # Task runner (all dev commands)
 ├── pyproject.toml           # Project configuration
-└── CLAUDE.md                # This file
+└── CLAUDE.md                # This file (read by both Copilot and Claude Code)
 ```
 
 ## Context Documents
 
 | Document | When to Read |
 |----------|--------------|
-| `docs/docs/developer/architecture.md` | Before making structural changes |
-| `docs/docs/developer/contributing.md` | Before submitting PRs |
 | `CONTRIBUTING.md` | For contribution guidelines |
 | `CHANGELOG.md` | Before adding release notes |
-| `admin/README.md` | For available admin scripts |
+| `docs/docs/developer/architecture.md` | Before making structural changes |
+| [acme-arch/docs/acme-architecture.md](https://github.com/blackwhitehere/acme-arch/blob/main/docs/acme-architecture.md) | For overall ACME system architecture |
 
 ## Coding Standards
 
-- **Style**: Use ruff for linting and formatting, isort for imports
+- **Style**: Use ruff for linting and formatting
 - **Testing**: All new code requires tests in `tests/`
 - **Types**: Include type hints in function signatures
 - **Docs**: Keep docstrings concise but informative
@@ -76,28 +81,16 @@ When adding new features, update the demo to showcase them.
 - [ ] Demo updated if new features added
 - [ ] Documentation updated if needed
 
-## Just Commands
+## Agent Configuration
 
-| Command | Purpose |
-|---------|---------|
-| `just` | List available commands |
-| `just test` | Run pytest test suite |
-| `just lint` | Check code with ruff |
-| `just format` | Auto-format code |
-| `just fix` | Auto-fix linting issues |
-| `just demo` | Launch demo with fixture data |
-| `just install` | Install dependencies |
-| `just clean` | Remove generated files |
+This project uses `CLAUDE.md` as the primary instruction file for both GitHub Copilot and Claude Code. Tool-specific configuration:
 
-## Admin Scripts
-
-| Script | Purpose |
-|--------|---------|
-| `./admin/test.sh` | Run pytest test suite |
-| `./admin/lint.sh` | Check code with ruff |
-| `./admin/format.sh` | Auto-format code |
-| `./admin/clean.sh` | Remove untracked files |
-| `./admin/update-gitignore.sh` | Add patterns to .gitignore |
+| Path | Tool | Purpose |
+|------|------|---------|
+| `.github/instructions/*.instructions.md` | Copilot | File-scoped rules (Python src, tests, docs) |
+| `.github/agents/*.agent.md` | Copilot | Agent definitions (contribution-expert, plan) |
+| `.claude/rules/*.md` | Claude Code | File-scoped rules (same content as Copilot) |
+| `.claude/commands/*.md` | Claude Code | Slash commands |
 
 ## Template Origin
 
