@@ -6,15 +6,16 @@
 
 | Task | Command |
 |------|---------|
-| Run tests | `just test` |
-| Lint code | `just lint` |
-| Format code | `just format` |
+| Run tests | `just test` or `/test` |
+| Lint code | `just lint` or `/lint` |
+| Format code | `just format` or `/format` |
 | Fix lint issues | `just fix` |
+| **Verify all** | `/verify` (format + lint + test) |
 | Install deps | `just install` or `uv sync` |
 | Add dependency | `uv add <package>` |
 | **Run demo** | `just demo` |
 | Run app | `uv run python -m {{package_name}}` |
-| Clean files | `just clean` |
+| Clean files | `just clean` or `/clean` |
 
 ## Demo
 
@@ -39,6 +40,8 @@ When adding new features, update the demo to showcase them.
 │   ├── agents/              # Copilot agent definitions
 │   └── instructions/        # Copilot file-scoped instructions
 ├── .claude/                 # Claude Code configuration
+│   ├── settings.json        # Hooks (auto-format/lint on edit)
+│   ├── hooks/               # Hook scripts
 │   ├── rules/               # Claude Code file-scoped rules
 │   └── commands/            # Claude Code slash commands
 ├── justfile                 # Task runner (all dev commands)
@@ -90,7 +93,9 @@ This project uses `CLAUDE.md` as the primary instruction file for both GitHub Co
 | `.github/instructions/*.instructions.md` | Copilot | File-scoped rules (Python src, tests, docs) |
 | `.github/agents/*.agent.md` | Copilot | Agent definitions (contribution-expert, plan) |
 | `.claude/rules/*.md` | Claude Code | File-scoped rules (same content as Copilot) |
-| `.claude/commands/*.md` | Claude Code | Slash commands |
+| `.claude/commands/*.md` | Claude Code | Slash commands (`/test`, `/lint`, `/format`, `/verify`, `/clean`) |
+| `.claude/settings.json` | Claude Code | Hooks: auto-format and lint `.py` files after edits |
+| `.claude/hooks/` | Claude Code | Hook scripts executed by settings.json |
 
 ## Template Origin
 

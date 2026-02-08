@@ -55,3 +55,7 @@ demo:
     uv run python -m streamlit run src/{{package_name}}/demo_app.py \
         --server.address localhost \
         --browser.gatherUsageStats false
+
+# Build and serve docs in dev mode
+docs:
+    cd docs && uv run mkdocs serve

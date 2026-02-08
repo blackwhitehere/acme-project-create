@@ -4,20 +4,14 @@ Run the pytest test suite.
 
 ## Instructions
 
-Run tests using the admin script or pytest directly:
+Run tests using just:
 
 ```bash
 # Run all tests
-./admin/test.sh
+just test
 
-# Run with verbose output
-./admin/test.sh -v
-
-# Run specific test file
-./admin/test.sh tests/test_specific.py
-
-# Run tests matching a pattern
-./admin/test.sh -k "test_name_pattern"
+# Or run pytest directly with arguments
+uv run pytest tests/ -v $ARGUMENTS
 ```
 
 ## Arguments

@@ -1,21 +1,23 @@
 # Format Code
 
-Auto-format code using ruff and isort.
+Auto-format code using ruff.
 
 ## Instructions
 
-Run the formatter using the admin script:
+Run the formatter using just:
 
 ```bash
-./admin/format.sh
+just format
 ```
 
-This will:
-1. Format code with ruff format
-2. Sort imports with isort
+Or run ruff directly:
+
+```bash
+uv run ruff format src/ tests/
+```
 
 ## After Running
 
 1. Report files that were modified
 2. Summarize the types of changes made (if any)
-3. Suggest running `./admin/lint.sh` to verify no issues remain
+3. Suggest running `just lint` to verify no issues remain

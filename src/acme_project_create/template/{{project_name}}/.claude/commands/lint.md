@@ -4,14 +4,20 @@ Check code quality using ruff linter.
 
 ## Instructions
 
-Run the linter using the admin script:
+Run the linter using just:
 
 ```bash
 # Check for lint errors
-./admin/lint.sh
+just lint
 
 # Auto-fix fixable errors
-./admin/lint.sh --fix
+just fix
+```
+
+Or run ruff directly with arguments:
+
+```bash
+uv run ruff check src/ tests/ $ARGUMENTS
 ```
 
 ## Arguments
