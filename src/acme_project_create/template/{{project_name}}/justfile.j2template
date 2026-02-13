@@ -45,16 +45,23 @@ clean:
     find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
     find . -type f -name "*.pyc" -delete 2>/dev/null || true
 
-# Launch demo: populate fixture data and run Streamlit app showcasing all functionality
-demo:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    echo "Populating fixture data..."
+# Remove demo fixture data
+demo-clean:
+    rm -rf src/{{package_name}}/_demo_data
+    @echo "Demo data cleaned"
+
+# Populate demo fixture data
+demo-fixtures:
     uv run python -m {{package_name}}.demo --setup
-    echo "Launching Streamlit demo..."
+
+# Launch Streamlit demo UI (requires fixtures)
+demo-ui:
     uv run python -m streamlit run src/{{package_name}}/demo_app.py \
         --server.address localhost \
         --browser.gatherUsageStats false
+
+# Full demo: clean, populate fixtures, and launch UI
+demo: demo-clean demo-fixtures demo-ui
 
 # Build and serve docs in dev mode
 docs:

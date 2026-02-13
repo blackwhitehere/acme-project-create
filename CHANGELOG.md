@@ -1,5 +1,8 @@
 # [Unreleased]
 
+### Changed
+- **Justfile demo split**: `demo` recipe split into `demo-clean` (remove fixture data), `demo-fixtures` (populate samples), and `demo-ui` (launch Streamlit) for granular control
+
 ### Added
 - **Copilot Agent Definitions**: Template now includes `.github/agents/` with contribution-expert, plan, and template-sync agents
 - **Copilot Scoped Instructions**: Template includes `.github/instructions/` with Python source, tests, and docs instructions
