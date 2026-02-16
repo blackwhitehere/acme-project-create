@@ -1,9 +1,8 @@
-from ._main import (
-    main
-)
-
 import logging
+
 from dotenv import load_dotenv
+
+from ._main import main as main
 
 load_dotenv()
 
