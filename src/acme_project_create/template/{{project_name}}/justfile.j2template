@@ -47,16 +47,16 @@ clean:
 
 # Remove demo fixture data
 demo-clean:
-    rm -rf src/{{package_name}}/_demo_data
+    rm -rf data/_demo_data
     @echo "Demo data cleaned"
 
 # Populate demo fixture data
 demo-fixtures:
-    uv run python -m {{package_name}}.demo --setup
+    uv run python -m demo.fixtures --setup
 
 # Launch Streamlit demo UI (requires fixtures)
 demo-ui:
-    uv run python -m streamlit run src/{{package_name}}/demo_app.py \
+    uv run python -m streamlit run demo.app \
         --server.address localhost \
         --browser.gatherUsageStats false
 

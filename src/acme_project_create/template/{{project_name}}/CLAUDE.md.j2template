@@ -2,38 +2,37 @@
 
 {{description}}
 
+## Libraries and Frameworks
+
+<List of major libraries and frameworks used in the project, with a brief description of their purpose.>
+
 ## Quick Reference
+
+`just` tool with a `justfile` in root of the repository contains useful commands for activating and managing python environment and managing common tasks
 
 | Task | Command |
 |------|---------|
-| Run tests | `just test` or `/test` |
-| Lint code | `just lint` or `/lint` |
-| Format code | `just format` or `/format` |
+| Run tests | `just test`|
+| Lint code | `just lint`|
+| Format code | `just format` |
 | Fix lint issues | `just fix` |
-| **Verify all** | `/verify` (format + lint + test) |
-| Install deps | `just install` or `uv sync` |
 | Add dependency | `uv add <package>` |
-| **Run demo** | `just demo` |
-| Run app | `uv run python -m {{package_name}}` |
-| Clean files | `just clean` or `/clean` |
+| Run demo | `just demo` |
+| Clean files | `just clean` |
 
 ## Demo
 
-Run `just demo` to populate fixture data and launch a Streamlit app showcasing all functionality. Every project should maintain a working demo that visually demonstrates what it can do.
-
-The demo:
-1. Runs `{{package_name}}.demo --setup` to populate a local data store with fixture data
-2. Launches a Streamlit app at `src/{{package_name}}/demo_app.py`
-
-When adding new features, update the demo to showcase them.
+Run `just demo` to populate fixture data and launch a Streamlit app showcasing all functionality.
+Every project should maintain a working demo that visually demonstrates what it can do.
 
 ## Project Structure
 
 ```
 {{project_name}}/
 ├── src/{{package_name}}/    # Main package source code
-│   ├── demo.py              # Demo fixture data setup
-│   └── demo_app.py          # Streamlit demo app
+├── demo/                    # Demo files
+│   ├── fixtures.py          # Demo fixture data setup
+│   └── app.py               # Streamlit demo app
 ├── tests/                   # Test files
 ├── docs/                    # Documentation (MkDocs)
 ├── .github/                 # GitHub workflows, agents, and scoped instructions
@@ -55,17 +54,44 @@ When adding new features, update the demo to showcase them.
 |----------|--------------|
 | `CONTRIBUTING.md` | For contribution guidelines |
 | `CHANGELOG.md` | Before adding release notes |
-| `docs/docs/developer/architecture.md` | Before making structural changes |
+| `docs/docs/developer/architecture.md` | For high level design & implementation details |
+| `docs/docs/user/` | For how to use the application/library |
 | [acme-arch/docs/acme-architecture.md](https://github.com/blackwhitehere/acme-arch/blob/main/docs/acme-architecture.md) | For overall ACME system architecture |
 
 ## Coding Standards
 
 - **Style**: Use ruff for linting and formatting
-- **Testing**: All new code requires tests in `tests/`
+- **Python env**: Project uses uv for python env management
+- **Testing**:
+    * All new code requires tests in `tests/` that focus on what user expects the behaviour to be, not on what the code already does.
+    * Every test is annotated with human readable description of what property of expected behaviour a given test case is capturing
+    * Follow the Arrange-Act-Assert pattern
 - **Types**: Include type hints in function signatures
-- **Docs**: Keep docstrings concise but informative
-- **DRY**: Avoid duplication; centralize shared logic
-- **Simplicity**: Prefer simple solutions over complex abstractions
+- **Docs**:
+    - Keep docstrings concise but informative
+    - Keep documentation concise but informative and avoid excess comments that just describe what code is doing.
+    - Check for python typing information in method signatures is correct and if documentation needs to be updated to reflect existing functionality.
+    - When writing new documentation from scratch, be very concise about what you add. Things can always be added later, but verbose documentation is difficult to verify.
+    - Avoid superlative adjectives in code comments and documentation. Use clear, concise language that describes the functionality without exaggeration. e.g. instead of saying "Provides comprehensive support for...", simply state "Supports...".
+- **Make code easy to change**:
+    - When possible make code easy to change in the future.
+    - Isolate distinct concerns into distinct components because that makes code easy to change.
+    - Create components with single responsibilities because that makes them easy to change.
+    - Name things well because that makes code easy to read and make changes to.
+    - Allow for design decisions to be reversed because that makes code easy to change when new requirements arrive.
+    - Adhere to DRY (don't repeat yourself) principle if possible.
+    - Centralize definition of the same knowledge and use it in all places it's used.
+    - When possible attempt to refactor code to obey this principle.
+    - Design systems to have orthogonal functionality.
+- **Simplicity**:
+    - When implementing new code solution try to limit amount of new code generated (especially one not dedicated to solving the core issue). Things can always be added later, but verbose code is difficult to verify.
+    - Prefer simple solutions over complex abstractions
+    - Prefer composition over inheritance
+    - Keep functions small and focused
+- **Align**:
+    - Before implementing new functionality think if the capability is already handled by an existing solution part of the system.
+      e.g. if your solution needs configuration or secrets management, is there already a library that helps with that?
+
 
 ## Workflow Requirements
 
