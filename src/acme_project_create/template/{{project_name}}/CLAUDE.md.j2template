@@ -62,6 +62,7 @@ Every project should maintain a working demo that visually demonstrates what it 
 
 - **Style**: Use ruff for linting and formatting
 - **Python env**: Project uses uv for python env management
+- **Config**: Use `env.manifest` file to declare environment variables application needs to provide to run the app in a given conext
 - **Testing**:
     * All new code requires tests in `tests/` that focus on what user expects the behaviour to be, not on what the code already does.
     * Every test is annotated with human readable description of what property of expected behaviour a given test case is capturing
